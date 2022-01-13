@@ -128,8 +128,9 @@ if __name__ == "__main__":
     # 读取用户在命令行输入的信息
     parser = argparse.ArgumentParser()
     parser.add_argument("--config_path", help="config path of model")
+    parser.add_argument("--fold", help="fold")
     args = parser.parse_args()
-    for fold in range(10):
-        print(f'\033[92mtraining on Fold {fold}\033[0m')
-        trainer = Trainer(args, fold)
-        trainer.train()
+    fold = args.fold
+    print(f'\033[92mtraining on Fold {fold}\033[0m')
+    trainer = Trainer(args, fold)
+    trainer.train()
